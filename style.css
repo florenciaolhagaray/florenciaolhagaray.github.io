@@ -1,4 +1,4 @@
-/*esto hace un seteo general, buena práctica*/
+/* memoria: el selector universal con esos ajustes para seteo general */
 
 * {
   margin: 0;
@@ -6,8 +6,8 @@
   box-sizing: border-box;
 }
 body {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */ /* no es buena práctica flex en body */
   background-color: whitesmoke;
 }
 
@@ -23,77 +23,106 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
-.image {
-  max-width: 100%; /* Esto para que nunca sea más ancha que el contenedor */
-  height: auto; /* Esto para mantener proporción */
+.about h3 {
+  color: rgb(52, 52, 52);
+  font-family: 'Space Mono', monospace;
+  font-weight: 400; /* o 700 */
+  text-align: center;
+  padding-top: 1rem;
+  letter-spacing: 0.001rem;
+}
+
+.about h1 {
+  color: rgb(89, 65, 245);
+  font-family: 'Borel', cursive;
+  font-style: normal;
+}
+
+/* Imágenes en main section */
+
+.img-portfolio {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center; /* centra horizontalmente las imágenes */
+  margin-bottom: 20px;
+}
+
+.img-portfolio img {
+  /*memoria*/
+  /* max-width: 100%; /* Esto para que nunca sea más ancha que el contenedor */
+  /* height: auto; Esto para mantener proporción */
+  /* object-fit: cover; */ /* Solo tiene efecto si la imagen tiene un `width` y `height` fijos */
+  /* display: block;  */
+  width: 1000px;
+  height: 500px;
   object-fit: cover;
-  display: block; /* Para que no quede espacio entre la img y el footer */
-  margin: 0 auto; /* Para centrar la imagen horizontalmente */
+  border: 2px dotted mediumslateblue;
 }
 
 /*Nav*/
 
 .nav-bar {
-  display: flex;
-  align-items: center; /* Alinea verticalmente */
-  justify-content: space-between;
   background-color: whitesmoke;
-  padding: 1rem;
+  padding: 1.5rem 0;
 }
 
 .nav-links {
   display: flex;
+  justify-content: center; /* Centra "li" horizontalmente */
+  align-items: center; /* Centra verticalmente */
   list-style: none;
-  gap: 1rem;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li {
-  margin: 0 0rem; /*dos valores de margin: [arriba/abajo] [izquierda/derecha] */
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a {
-  color: rgb(87, 66, 206);
-  font-family: 'Borel', cursive;
-  font-weight: 400;
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem; /* Esto es para aumentar el área clickeable */
+  color: rgb(89, 65, 245);
   text-decoration: none;
+  font-family: 'Borel', cursive;
+  font-size: medium;
+  transition: border-bottom 0.3s ease;
+  border-bottom: 1px solid transparent; /* Esto evita que se despliegue hacia abajo al clickear y hover */
 }
 
-li a:hover {
-  border-bottom: 2px solid rgb(87, 66, 206);
+.nav-links a::after {
+  content: ''; /* vacío */
+  position: absolute; /*esto se indica para el pseudo*/
+  top: 50%;
+  right: -0.5rem;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  content: '✦'; /* aparece la estrella con hover */
+  opacity: 1; /* sin opacity no se ve */
+  color: rgb(52, 52, 52);
 }
 
 /* Footer */
 
-.footer {
+.footer p {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  background-color: rgb(87, 66, 206);
-}
-
-footer p {
   font-family: 'Borel', cursive;
-  font-weight: 400;
-  font-style: normal;
-  color: whitesmoke;
-  font-size: smaller;
-}
-
-/*Font related*/
-
-h1,
-h3 {
-  color: rgb(87, 66, 206);
-  font-family: 'Space Mono', monospace;
-  font-weight: 500;
-  font-style: normal;
-  line-height: 1.5;
-  text-align: center;
-  max-width: 600px;
-  padding-top: 1rem;
+  font-size: small;
+  color: grey;
 }
