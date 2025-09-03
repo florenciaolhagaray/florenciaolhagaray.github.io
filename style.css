@@ -1,128 +1,124 @@
-/* memoria: el selector universal con esos ajustes para seteo general */
-
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  /* display: flex;
-  flex-direction: column; */ /* no es buena práctica flex en body */
   background-color: whitesmoke;
 }
 
-/* Main */
-
-.main-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.about {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-}
-
-.about h3 {
-  color: rgb(52, 52, 52);
+/* NAVBAR */
+.navbar {
+  background-color: whitesmoke;
   font-family: 'Space Mono', monospace;
-  font-weight: 400; /* o 700 */
-  text-align: center;
-  padding-top: 1rem;
-  letter-spacing: 0.001rem;
+  padding: 1rem;
 }
 
-.about h1 {
-  color: rgb(89, 65, 245);
-  font-family: 'Borel', cursive;
-  font-style: normal;
-}
-
-/* Imágenes en main section */
-
-.img-portfolio {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center; /* centra horizontalmente las imágenes */
-  margin-bottom: 20px;
-}
-
-.img-portfolio img {
-  /*memoria*/
-  /* max-width: 100%; /* Esto para que nunca sea más ancha que el contenedor */
-  /* height: auto; Esto para mantener proporción */
-  /* object-fit: cover; */ /* Solo tiene efecto si la imagen tiene un `width` y `height` fijos */
-  /* display: block;  */
-  width: 1000px;
-  height: 500px;
-  object-fit: cover;
-  border: 2px dotted mediumslateblue;
-}
-
-/*Nav*/
-
-.nav-bar {
-  background-color: whitesmoke;
-  padding: 1.5rem 0;
-}
-
-.nav-links {
-  display: flex;
-  justify-content: center; /* Centra "li" horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  list-style: none;
+.navbar-nav {
   gap: 2rem;
-  margin: 0;
-  padding: 0;
 }
 
-.nav-links li {
-  display: flex;
-  align-items: center;
-}
-
-.nav-links a {
-  position: relative;
-  display: block;
-  padding: 0.5rem 1rem; /* Esto es para aumentar el área clickeable */
-  color: rgb(89, 65, 245);
+.navbar-nav a {
+  color: grey;
+  position: relative; /* fix para que ::after se posicione bien */
+  display: inline-block;
   text-decoration: none;
-  font-family: 'Borel', cursive;
-  font-size: medium;
-  transition: border-bottom 0.3s ease;
-  border-bottom: 1px solid transparent; /* Esto evita que se despliegue hacia abajo al clickear y hover */
 }
 
-.nav-links a::after {
-  content: ''; /* vacío */
-  position: absolute; /*esto se indica para el pseudo*/
+/*para el hover de estrella*/
+.navbar-nav a::after {
+  content: '';
+  position: absolute;
   top: 50%;
-  right: -0.5rem;
-  transform: translateY(-50%);
-  font-size: 1rem;
+  right: -1.2rem; /* distancia del texto */
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transform: translateY(-50%); /* centra verticalmente */
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.nav-links a:hover::after {
-  content: '✦'; /* aparece la estrella con hover */
-  opacity: 1; /* sin opacity no se ve */
-  color: rgb(52, 52, 52);
+.navbar-nav a:hover::after {
+  content: '✦';
+  opacity: 1;
+  color: palevioletred;
+  transform: translateY(-50%) translateX(3px); /* aparece con desplazamiento */
 }
 
-/* Footer */
+/* HEADER y HERO */
+.header {
+  padding-bottom: 2rem;
+}
+
+.header img {
+  width: 100%;
+  max-height: 400px; /* controlar altura */
+  object-fit: cover; /* mantener proporción y recorta exceso */
+}
+
+.hero {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+/* FOOTER */
+.footer {
+  background-color: whitesmoke;
+}
 
 .footer p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   padding: 1rem;
-  font-family: 'Borel', cursive;
+  font-family: 'Space Mono', monospace;
+  font-weight: 400; /* o 700 */
   font-size: small;
   color: grey;
+}
+
+/* TEXTO */
+h1,
+h2 {
+  color: whitesmoke;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700; /* o 700 */
+}
+
+h1 {
+  padding-top: 1rem;
+}
+
+p {
+  color: gray;
+  font-family: 'Space Mono', monospace;
+  font-weight: 400; /* o 700 */
+}
+
+/* IMÁGENES */
+.portfolio-img {
+  width: 100%;
+  object-fit: cover; /* recorta */
+}
+
+/* MEDIA QUERIES */
+
+/* Tablet */
+@media (min-width: 768px) {
+  .hero {
+    text-align: center; /* queda centrado */
+    width: auto;
+  }
+}
+
+/* Celu */
+@media (max-width: 767px) {
+  .hero {
+    font-size: 1.8rem;
+  }
+  .hero br {
+    display: block;
+  }
 }

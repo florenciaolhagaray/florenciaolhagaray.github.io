@@ -1,43 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi primer portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- preconnect va solo una vez -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- las fuentes pueden ir en una sola línea separándolas con &family= -->
+    <title>Mi primer portfolio responsivo</title>
+
+    <!-- BOOTSTRAP -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Borel&display=swap"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+
+    <!-- CSS -->
+    <!-- el link de CSS debe ir después de BS sino me sobreescribe los estilos -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- GOOGLE FONTS -->
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Jacquarda+Bastarda+9+Charted&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <nav class="nav-bar">
-      <ul class="nav-links">
-        <li><a href="#">proyectos</a></li>
-        <li><a href="#">sobre mi</a></li>
-        <li><a href="#">contacto</a></li>
-      </ul>
-    </nav>
-    <main class="main-content">
-      <section class="about">
-        <h1>florencia olhagaray</h1>
-        <h3>
-          Lic. en <b>Diseño</b> de <b>Comunicación Visual</b> <br />con
-          formación en diseño de experiencias de usuario
-        </h3>
-      </section>
-      <div class="img-portfolio">
-        <img src="Portfolio 2024-1.jpg" alt="Imagen de portfolio 1" />
-        <img src="Portfolio 2024-2.jpg" alt="Imagen de portfolio 2" />
-        <img src="Portfolio 2024-3.jpg" alt="Imagen de portfolio 3" />
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-lg container-fluid">
+      <!-- <a class="navbar-brand" href="#">Florencia</a> -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav mx-auto">
+          <a class="nav-item nav-link" href="#">Sobre mi</a>
+          <a class="nav-item nav-link" href="#">Proyectos</a>
+          <a class="nav-item nav-link" href="#">Contacto</a>
+        </div>
       </div>
-    </main>
-    <footer class="footer">
-      <p>© Jóvenes a Programar ed . 2025 - Montevideo, Uruguay</p>
+    </nav>
+
+    <!-- HERO, HEADER -->
+    <div class="header">
+      <header class="position-relative">
+        <img src="74.png" class="img-fluid w-100" alt="" />
+        <!-- img-fluid + w-100: imagen a todo el viewport -->
+        <h1 class="hero">Florencia Olhagaray</h1>
+      </header>
+    </div>
+
+    <!-- SUBTITULO -->
+    <section class="container text-center my-5">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <p>
+            Soy <b>diseñadora en comunicación visual</b> y disfruto fusionando
+            diferentes técnicas, ya sea la ilustración tradicional y digital, el
+            collage o lo que sea que encuentre en mi escritorio al momento de
+            diseñar. Recientemente me recibí de la LDCV, sin embargo, considero
+            crucial seguir formándome como profesional, por esa razón me
+            encuentro estudiando <b>desarrollo web</b>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOTOS -->
+    <section class="container py-3">
+      <div class="row g-3">
+        <!-- g-3 en el row para controlar todo el espaciado -->
+        <div class="col-md-4 col-12">
+          <img
+            src="afiche azul.png"
+            alt="afiche 1"
+            class="img-fluid portfolio-img"
+          />
+        </div>
+        <!-- img -->
+        <div class="col-md-4 col-12">
+          <img
+            src="ilustracion revista 2.png"
+            alt="carta2"
+            class="img-fluid portfolio-img"
+          />
+        </div>
+        <!-- img -->
+        <div class="col-md-4 col-12">
+          <img
+            src="collage foto.png"
+            alt="flores"
+            class="img-fluid portfolio-img"
+          />
+        </div>
+        <!-- img -->
+        <div class="col-md-4 col-12">
+          <img
+            src="afiche mockup.png"
+            alt="afiche 3"
+            class="img-fluid portfolio-img"
+          />
+        </div>
+        <!-- img -->
+        <div class="col-md-4 col-12">
+          <img
+            src="ilustracion revista 1.png"
+            alt="carta1"
+            class="img-fluid portfolio-img"
+          />
+        </div>
+        <!-- img -->
+        <div class="col-md-4 col-12">
+          <img
+            src="afiche feria.png"
+            alt="afiche 2"
+            class="img-fluid portfolio-img"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer text-center py-2">
+      <div class="container">
+        <p class="m-0">Montevideo, Uruguay - Jóvenes a Programar 2025 - WIP.</p>
+      </div>
     </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
